@@ -310,7 +310,7 @@ func (d Docker) Inspect(ref string) (InspectData, error) {
 
 	err := cmd.Run()
 	if err != nil {
-		return InspectData{}, err
+		return InspectData{}, fmt.Errorf("docker inspect error: %w\n%s\n%s", stderrBuf, stderrBuf)
 	}
 
 	var data []InspectData
